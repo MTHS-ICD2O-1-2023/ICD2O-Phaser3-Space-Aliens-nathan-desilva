@@ -6,6 +6,8 @@
 // Created on: Apr 20234
 // This is the Phaser3 game configuration file
 
+// scene import statements
+import SplashScene from "./splashScene.js"
 /**
  * Start Phaser game.
  */
@@ -29,4 +31,4 @@ const config = {
 }
 
 const game = new Phaser.Game(config)
-console.log(game)
+// console.log(game)
