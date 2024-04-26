@@ -1,20 +1,22 @@
 /* global Phaser */
 
-//* Copyright (c) 2024 Nathan De Silva All rights reserved
+// Copyright (c) 2024 Nathan De Silva All rights reserved
 //
 // Created by: Nathan De Silva
-// Created on: Apr 20234
-// This is the Splash Scene 
+// Created on: Apr 2024
+// This is the Splash Scene
 
 /**
  * This class is the Splash Scene
  */
 class SplashScene extends Phaser.Scene {
   /**
-   * This method is the constructor.
+   * This method is the constructor
    */
-  constructor(){
+  constructor() {
     super({ key: "splashScene" })
+
+    this.splashSceneBackgroundImage = null
   }
 
   /**
@@ -23,35 +25,44 @@ class SplashScene extends Phaser.Scene {
    *   before preload() and create().
    * @param {object} data - Any data passed via ScenePlugin.add() or ScenePlugin.start().
    */
-  init(data){
-    this.cameras.main.setBackgroundColor("ffffff")
+  init(data) {
+    this.cameras.main.setBackgroundColor("#ffffff")
   }
 
-/**
- * Can be defined on your own Scenes.
- * Use it to load assets
- */
- preload(){
-  console.log("Splash Scene")
- }
+  /**
+   * Can be defined on your own Scenes.
+   * Use it to load assets
+   */
+  preload() {
+    console.log("Splash Scene")
+    this.load.image("splashSceneBackground", "./assets/splashSceneImage.png")
+  }
 
-/** 
- * Can be defined on  your own Scenes.
- * Use it to create your game objects.
- * @param {object} data - Any data passed via ScenePlugin.add() or ScenePlugin.start()
- */
+  /**
+   * Can be defined on your own Scenes.
+   * Use it to create your game objects
+   * @param {object} data - Any data passed via ScenePlugin.add() or ScenePlugin.start().
+   */
   create(data) {
-    //pass
+    this.splashSceneBackgroundImage = this.add.sprite(
+      0,
+      0,
+      "splashSceneBackground"
+    )
+    this.splashSceneBackgroundImage.x = 1920 / 2
+    this.splashSceneBackgroundImage.y = 1080 / 2
   }
 
-/**
- * Should be overridden by your own Scenes.
- * This method is called once per game step while the scene is running.
- * @param {number} time - The current time.
- * @param {number} delta - The delta time in ms since the last frame.
- */
-  update(time,delta) {
-    this.scene.switch("titleScene")
+  /**
+   * Should be overridden by your own Scenes.
+   * This method is called once per game step while the scene is running
+   * @param {number} time - The current time.
+   * @param {number} delta - the delta time in ms since the last frame 
+   */
+  update(time, delta) {
+    if (time > 3000) {
+      this.scene.switch("titleScene")
+    }
   }
 }
 
