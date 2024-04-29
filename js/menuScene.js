@@ -32,7 +32,7 @@ class MenuScene extends Phaser.Scene {
    * Use it to load assets
    */
   preload() {
-    console.log("Scene")
+    console.log("Menu Scene")
   }
 
   /** 
