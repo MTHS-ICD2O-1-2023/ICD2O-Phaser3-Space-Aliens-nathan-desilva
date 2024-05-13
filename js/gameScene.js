@@ -92,6 +92,7 @@ class GameScene extends Phaser.Scene {
       this.fireMissile = true
       const aNewMissile = this.physics.add.sprite(this.ship.x, this.ship.y, "missile")
       this.missileGroup.add(aNewMissile)
+      this.sound.play("laser")
       }
     }
 
